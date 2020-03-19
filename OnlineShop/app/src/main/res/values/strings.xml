@@ -6,4 +6,10 @@
     <string name="open_page_title">Open Page</string>
     <string name="settings_page_title">Settings Page</string>
     <string name="send_text">Send a text message</string>
+    <string name="dialog_title">Sign Up</string>
+    <string name="ok">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>

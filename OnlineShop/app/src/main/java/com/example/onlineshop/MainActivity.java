@@ -21,8 +21,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private final static String INFO = "INFO";
     private final static String DESCRIPTION = "DESCRIPTION";
-    private final static String HELLO = "Hello there!";
-    private final static String CHOOSE = "Choose an app...";
+    public final static String EXTRA_MESSAGE = "Extra message";
 
     private TextView description;
 
@@ -40,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         final ListView listview = (ListView) findViewById(R.id.listView);
         final ArrayList<String> list = new ArrayList<String>();
-        final Button send_text = findViewById(R.id.send_text);
+        final Button sendText = findViewById(R.id.send_text);
+        final Button signUp = findViewById(R.id.sign_up);
 
         description = (TextView) findViewById(R.id.textView);
 
@@ -58,14 +58,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        send_text.setOnClickListener(new View.OnClickListener() {
+        sendText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, HELLO);
-                intent.setType("text/plain");
-                startActivity(Intent.createChooser(intent, CHOOSE));
+                Intent intent = new Intent(MainActivity.this, Open.class);
+                String message = description.getText().toString();
+                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
+            }
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SIgnUp dialog = new SIgnUp();
+                dialog.show(getSupportFragmentManager(), "Sign Up");
             }
         });
     }
@@ -79,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.open:
                 Toast.makeText(this, "Open", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, Open.class));
                 break;
             default:
                 return super.onOptionsItemSelected(item);
