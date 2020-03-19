@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private final static String INFO = "INFO";
     private final static String DESCRIPTION = "DESCRIPTION";
+    private final static String HELLO = "Hello there!";
+    private final static String CHOOSE = "Choose an app...";
 
     private TextView description;
 
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ListView listview = (ListView) findViewById(R.id.listView);
         final ArrayList<String> list = new ArrayList<String>();
+        final Button send_text = findViewById(R.id.send_text);
 
         description = (TextView) findViewById(R.id.textView);
 
@@ -51,6 +55,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                 description.setText(products[position].toString());
+            }
+        });
+
+        send_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT, HELLO);
+                intent.setType("text/plain");
+                startActivity(Intent.createChooser(intent, CHOOSE));
             }
         });
     }

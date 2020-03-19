@@ -20,4 +20,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"/>
+
+    <Button style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/send_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/send_text" />
 </RelativeLayout>
