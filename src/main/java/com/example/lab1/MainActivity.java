@@ -2,6 +2,7 @@ package com.example.lab1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -59,9 +60,11 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.settings:
                 Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, Settings.class));
                 break;
             case R.id.open:
                 Toast.makeText(this, "Open", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, Open.class));
                 break;
             default:
                 return super.onOptionsItemSelected(item);
