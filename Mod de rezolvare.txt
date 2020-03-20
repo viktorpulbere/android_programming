@@ -1,0 +1,28 @@
+Tema 3:
+
+1. Add lifecycle support for the main activity
+    Pentru a rezolvare acestui pas, am suprascris urmatoarele metode din clasa MainActivity: onResume, onResume, onStart, onStop, onDestroy
+    
+2. Create a landscape layout for an actitivity and save the information when rotating device from the portrait mode to landscape mode
+    Pentru landscape layout am adaugat atributul 'android:screenOrientation="fullSensor"' pentru toate activitatile implicate in 'AndroidManifest.xml'.
+Salvarea informatiilor(descrierea produsului) a fost realizata prin suprascrierea metodelor 'onSaveInstanceState' si 'onRestoreInstanceState', salvand descrirea 
+in Bundle sub forma unui text si preluarea acesteia la 'onRestoreInstanceState' si popularea text view-ului cu acest text.
+
+3. Add a menu to the application (only the options, not implemented)
+    Am suprascris metoda 'onCreateOptionsMenu' si am creat un layout pentru 'menu'
+
+
+Tema 4:
+
+1. Implement functionalities for the menu you created in Lab 3
+    Pentru a reda functionalitate optiunilor din contextul menu, am suprascris metoda 'onOptionsItemSelected', pentru optiunea 'Open' am afisat un Toast,
+iar pentru 'Settings' am creat o noua activitate, care are un textView cu valoarea 'Settings page' si am redirectionat utilizatorul pe activitatea respectiva
+folosind Intent.
+
+2. Create another Activity (or more) and connect them using Intent Filters.
+    Am creat o un buton, care ne va redirectiona catre o noua activitate, folosind Intent, deasemenea, voi trimite un text din MainActivity, care va fi afisat in 
+activitatea respectiva, tot folosind Intent.
+
+3. Use dialog windows (AlertDialog) to interact with the user (username, password, search filter, etc.)
+    Am adaugat un buton 'Sign Up', care va deschide un dialog, cu doua campuri 'username' si 'password' si doua butoane 'cancel', 'sign up',
+pentru a deschide un dialog, am creat o clasa care extinde AppCompatDialogFragment si am suprascris metoda de 'onCreateDialog'.
