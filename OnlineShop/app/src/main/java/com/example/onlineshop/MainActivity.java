@@ -1,8 +1,9 @@
 package com.example.onlineshop;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -16,6 +17,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private final static String DESCRIPTION = "DESCRIPTION";
     public final static String EXTRA_MESSAGE = "Extra message";
 
+    private FusedLocationProviderClient fusedLocationClient;
     private TextView description;
 
     private Product[] products = {
@@ -43,6 +55,14 @@ public class MainActivity extends AppCompatActivity {
         final Button signUp = findViewById(R.id.sign_up);
 
         description = (TextView) findViewById(R.id.textView);
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                        this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1
+                );
+        }
 
         for (int i = 0; i < products.length; ++i) {
             list.add(products[i].getName());
@@ -75,6 +95,25 @@ public class MainActivity extends AppCompatActivity {
                 dialog.show(getSupportFragmentManager(), "Sign Up");
             }
         });
+
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        if (location != null) {
+                            Toast.makeText(
+                                    MainActivity.this, "Latitude: " + location.getLatitude() + "\nLatitude: " + location.getLongitude(), Toast.LENGTH_SHORT
+                            ).show();
+                            Log.i("LOCATION", location.toString());
+                        }
+                    }
+                })
+                .addOnFailureListener(this, new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("LOCATION", e.getMessage());
+                    }
+                });
     }
 
     @Override

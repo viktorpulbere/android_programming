@@ -47,5 +47,6 @@ Tema 6:
 suportati, am apelat metoada getSensorList(Sensor.TYPE_ALL) din clasa SensoManager si pentru a prelua toate informatiile relevante, despre un anumit sensor, am apelat metoda .toString(). 
 
 2. Add support for location services. Calculate and display coordinates using GPS
-    
-
+    Am adaugat permisiuni in Manifest, apoi in metoda de onCreate am cerut permisiuni in cazul in care nu exista, prin metoda ActivityCompat.requestPermissions,
+am creat un locationClient cu ajutorul metodei LocationServices.getFusedLocationProviderClient si am inregistrat un event listener pentru metoda .getLastLocation()
+astfel incat la success o sa afisez un Toast cu longitudine + latitudine a device-ului curent.
