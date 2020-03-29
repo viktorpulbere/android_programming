@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.settings:
                 Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, Settings.class));
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 break;
             case R.id.open:
                 Toast.makeText(this, "Open", Toast.LENGTH_SHORT).show();
