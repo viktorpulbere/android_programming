@@ -87,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.open:
                 Toast.makeText(this, "Open", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.sensor:
+                Toast.makeText(this, "Sensor", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, SensorActivity.class));
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }

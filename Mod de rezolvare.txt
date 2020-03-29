@@ -40,3 +40,12 @@ fiind setate in metoda 'onCreatePreferences'.
 preluate din dialog.
     Pentru a putea salva in Room, am creat urmatoarele clase: AppDatabase pentru a initializa instanta de db, User pentru a defini modelul unui user, 
 UserDao pentru a defini metodele specifice de manipulare a modelului, si Repository care face efectiv operatiunile in db asincron, pentru a nu bloca thread-ul principal (interfata).
+
+Tema 6:
+1. Create a new Activity in your application and display information from the sensors available on the device
+    Am creat o noua activitate cu un ListView pe care il populez cu informatii despre toti sensorii suportati de device la onCreate event. Pentru a lua lista de sensori
+suportati, am apelat metoada getSensorList(Sensor.TYPE_ALL) din clasa SensoManager si pentru a prelua toate informatiile relevante, despre un anumit sensor, am apelat metoda .toString(). 
+
+2. Add support for location services. Calculate and display coordinates using GPS
+    
+
