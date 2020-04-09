@@ -50,3 +50,6 @@ suportati, am apelat metoada getSensorList(Sensor.TYPE_ALL) din clasa SensoManag
     Am adaugat permisiuni in Manifest, apoi in metoda de onCreate am cerut permisiuni in cazul in care nu exista, prin metoda ActivityCompat.requestPermissions,
 am creat un locationClient cu ajutorul metodei LocationServices.getFusedLocationProviderClient si am inregistrat un event listener pentru metoda .getLastLocation()
 astfel incat la success o sa afisez un Toast cu longitudine + latitudine a device-ului curent.
+
+Tema 7:
+Am adaugat in Manifest permisiuni pentru camera, read si write catre External Storage, am adaugat activitatea CameraActivity si am suprascris metodele ce tin de lifecycle. Am adaugat un buton care va face captura foto. Am adaugat un nou item in Menu, cu optiunea Camera, de unde voi accesa camera folosind Intents.
