@@ -16,4 +16,5 @@
     <string name="notifications">notifications</string>
     <string name="wifi">wifi enabled</string>
     <string name="sensor">Sensor</string>
+    <string name="camera">Camera</string>
 </resources>

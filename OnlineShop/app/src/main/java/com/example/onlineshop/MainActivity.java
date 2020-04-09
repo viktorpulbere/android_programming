@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             new Product("Pesto with basil", "Italian traditional pesto with basil, chesse and oil", 17.68)
     };
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
                 description.setText(products[position].toString());
             }
         });
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            this.requestPermissions(new String[]{Manifest.permission.CAMERA}, 1);
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            this.requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }
 
         sendText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +140,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.sensor:
                 Toast.makeText(this, "Sensor", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, SensorActivity.class));
+                break;
+            case R.id.action_camera:
+                Intent intent = new Intent(this, CameraActivity.class);
+                startActivity(intent);
                 break;
             default:
                 return super.onOptionsItemSelected(item);
