@@ -1,4 +1,4 @@
-package com.example.blockit.ui.home;
+package com.example.blockit.ui.sms;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,20 +14,19 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.blockit.R;
 
-public class HomeFragment extends Fragment {
+public class SmsFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private SmsViewModel smsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        smsViewModel =
+                ViewModelProviders.of(this).get(SmsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_sms, container, false);
+        smsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                System.out.println("Hello");
             }
         });
         return root;

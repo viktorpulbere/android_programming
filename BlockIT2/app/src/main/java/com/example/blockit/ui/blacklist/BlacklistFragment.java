@@ -1,4 +1,4 @@
-package com.example.blockit.ui.dashboard;
+package com.example.blockit.ui.blacklist;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.blockit.R;
 
-public class DashboardFragment extends Fragment {
+public class BlacklistFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private BlacklistViewModel blacklistViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        blacklistViewModel =
+                ViewModelProviders.of(this).get(BlacklistViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_blacklist, container, false);
+        final TextView textView = root.findViewById(R.id.text_blacklist);
+        blacklistViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

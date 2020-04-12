@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">BlockIT</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="title_sms">Filter Content</string>
     <string name="title_blacklist">Blacklist</string>
     <string name="title_history">History</string>

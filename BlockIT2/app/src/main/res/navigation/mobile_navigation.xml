@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_sms">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.blockit.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_sms"
+        android:name="com.example.blockit.ui.sms.SmsFragment"
+        android:label="@string/title_sms"
+        tools:layout="@layout/fragment_sms" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.blockit.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_blacklist"
+        android:name="com.example.blockit.ui.blacklist.BlacklistFragment"
+        android:label="@string/title_blacklist"
+        tools:layout="@layout/fragment_blacklist" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.blockit.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_history"
+        android:name="com.example.blockit.ui.history.HistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>
