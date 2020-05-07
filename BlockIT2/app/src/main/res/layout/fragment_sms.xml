@@ -7,8 +7,9 @@
     tools:context=".ui.sms.SmsFragment">
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
 
@@ -27,17 +28,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:hint="Insert the word that you want to block"
+                android:hint="@string/sms_text"
                 android:singleLine="true"
                 android:background="@null"
                 android:fontFamily="Roboto"
                 android:textSize="16dp"/>
 
             <ImageButton
+                android:id="@+id/addButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignRight="@+id/txtSearch"
                 android:background="@drawable/ic_add_dark_24dp" />
         </RelativeLayout>
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:ignore="UnknownId"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+        />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

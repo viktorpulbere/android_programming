@@ -3,4 +3,6 @@
     <string name="title_sms">Filter Content</string>
     <string name="title_blacklist">Blacklist</string>
     <string name="title_history">History</string>
+    <string name="block_text">Add a phone number to the black list</string>
+    <string name="sms_text">Insert the word that you want to block</string>
 </resources>
